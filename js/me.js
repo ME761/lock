@@ -1,70 +1,44 @@
 var app=angular.module('me',[]);
 app.controller('mainCtrl',function($scope,$timeout) {
-	$scope.oangle=0;
-	$scope.iangle=50;
-	$scope.poangle=$scope.oangle;
-	var CCW=-1,CW=1;
-	$scope.DIR=1;
-	var dir=CW;
-
 	$scope.Math=Math;
 	$scope.buttons=[1,2,3,4,5,6,7,8,9,10,11,12];
-
-	$scope.enjoy=function(){
-		rotatei();
-		// console.log(direction());
-	}
-
-	function rotatei(){
-		var oangle=$scope.oangle,iangle=$scope.iangle;
-		console.log(oangle,iangle)
-		if(Math.abs(oangle-iangle)==1){
-			$scope.iangle=$scope.oangle;
-		}
-		$scope.iangle%=360;
-	}
-	
-	function touch(v){
-		return (360*360+v)%360;
-	}
-	
-	function direction(){
-		var oangle=$scope.oangle,poangle=$scope.poangle;
-		$scope.poangle=$scope.oangle;
-		if(oangle-poangle>0){
-			console.log(CW)
-			return CW;//CCW
-		}
-		if(oangle-poangle<0){
-			console.log(CCW)
-			return CCW;
-		}
-		return 0;
-	}
-	var pi=Math.PI;
 	$scope.torad=function(z){
-		return z*pi/180;
+		return z*Math.PI/180;
 	}
-	$scope.gotot=function(angle){
 
-
-		if($scope.oangle <angle*30 ){
-			for (var i = $scope.oangle; i < angle*30; i++) {
-				$scope.oangle++;
-				$scope.enjoy();
-				$scope.oangle%=360;
-			}
-			$scope.enjoy();
-			$scope.oangle%=360;
+	$scope.icurrent=360*360+75;
+	$scope.ocurrent=360*360+60;
+	var ocurrent=$scope.ocurrent%360,icurrent=$scope.icurrent%360,next=0,CW=1,CCW=-1,xicurrent=0;
+	$scope.DIR=CW;
+	$scope.nnjoy=function(pos){
+		next=(pos*30 )% 360;
+		var normalized=next;
+		console.log(normalized);
+		if(next<ocurrent){
+			normalized=360 - ocurrent + next;
+			console.log('yp',normalized)
+		}else{
+			normalized=pos*30 - ocurrent;
+			console.log('npe')
 		}
-		if($scope.oangle > angle*30){
-			for (var i = $scope.oangle; i < 30*angle+360; i++) {	
-				$scope.oangle++;
-				$scope.enjoy();
-				$scope.oangle%=360;
+		ocurrent=$scope.ocurrent%360;
+		icurrent=$scope.icurrent%360;
+		xicurrent=0;
+		console.log('normalized',normalized)
+		for(var i=ocurrent;i<=ocurrent+normalized;i++){
+			// console.log('yeah');
+			if($scope.DIR==CW) {
+				console.log(icurrent,i);
+				if(icurrent - (i%360)==1){
+					// xicurrent=normalized+1;
+					xicurrent=normalized - icurrent + ocurrent+1;
+					console.log('yeah',xicurrent,next+1)
+				}
 			}
-			$scope.enjoy();
-			$scope.oangle%=360;
 		}
+		$scope.icurrent+=xicurrent;
+		icurrent=xicurrent;
+		$scope.ocurrent+=normalized;
+		ocurrent=next;
 	}
 });
