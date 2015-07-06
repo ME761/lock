@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html ng-app="me">
+<html ng-app="me" ng-controller="mainCtrl">
 <head>
 	<title>ME761A</title>
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="js/me.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/me.css">
 </head>
 <body>
-	<div class="main">
+	<div style="text-align:center;margin-top:10px;">
+		<input autofocus="true" type="number" ng-change="enjoy()" ng-model="oangle" style="width:100px;text-align:center">
 		<div>
-			{{angle}}
+			{{oangle}}&deg;
 		</div>
-		<input type="text" ng-model="angle">
+	</div>
+	<div class="main">
+		<div class="outer" style="transform: rotate({{oangle}}deg);">
+			<span class="nobe"></span>
+			<span class="openo"></span>
+		</div>
+		<div class="inner" style="transform: rotate({{iangle}}deg);">
+			<span class="nobe nobei"></span>
+			<span class="openi"></span>
+		</div>
 	</div>
 </body>
 </html>
