@@ -20,9 +20,12 @@ $width:200px;
 	width: $width;
 	height: $width;
 	left: calc(50% - #{$width/2});
+	top:145px;
 	border-radius: 50%;
+	z-index: 5;
 }
 .inner{
+	z-index: 10;
 	position: absolute;
 	background:#fff;
 	border:solid 3px rgb(184, 143, 143);
@@ -30,7 +33,7 @@ $width:200px;
 	width: 140px;
 	height: 140px;
 	left: calc(50% - 70px);
-	top: 30px;
+	top: 175px;
 	border-radius: 50%;
 }
 .nobe{
