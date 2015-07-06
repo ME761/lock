@@ -36,16 +36,28 @@ app.controller('mainCtrl',function($scope,$timeout) {
 			if(next<ocurrent){
 				normalized=ocurrent - next;
 			}else{
-				normalized=360 - next + ocurrent;
+				normalized=(360 - next + ocurrent)%360;
+				console.log(normalized,next,ocurrent)
 			}
-			// console.log(normalized);
-			for(var i=ocurrent;i>=ocurrent - normalized;i--){
-				console.log(i,ocurrent,icurrent)
-				if(i%360 - icurrent ==1){
-					xicurrent=normalized - (-icurrent + ocurrent) +1;
-					console.log('yomen',xicurrent,normalized,icurrent,ocurrent);
-				}
+
+			var move=0;
+			if(icurrent<ocurrent){
+				move=ocurrent - icurrent;
+			}else{
+				move=(360 - icurrent + ocurrent)%360;
 			}
+			if(move<normalized){
+				xicurrent=normalized - (-icurrent + ocurrent) +1;
+				xicurrent%=360;
+			}
+
+			// for(var i=ocurrent;i>=ocurrent - normalized;i--){
+			// 	console.log(i,ocurrent,icurrent)
+			// 	if(i%360 - icurrent ==1){
+			// 		xicurrent=normalized - (-icurrent + ocurrent) +1;
+			// 		// console.log('yomen',xicurrent,normalized,icurrent,ocurrent);
+			// 	}
+			// }
 			$scope.icurrent-=xicurrent;
 			// icurrent=xicurrent;
 			$scope.ocurrent-=normalized;
