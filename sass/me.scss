@@ -1,0 +1,95 @@
+@import "../bower_components/roboto-fontface/css/roboto-fontface.scss";
+body{
+	margin: 0;
+	font-family:roboto;
+}
+*,*:after,*:before{
+	box-sizing:border-box;
+}
+$width:200px;
+.main{
+	text-align: center;
+	position: relative;
+	margin-top: 20px;
+}
+.outer{
+	position: absolute;
+	background-color: #fff;
+	border:solid 3px #ababab;
+	display: inline-block;
+	width: $width;
+	height: $width;
+	left: calc(50% - #{$width/2});
+	border-radius: 50%;
+}
+.inner{
+	position: absolute;
+	background:#fff;
+	border:solid 3px rgb(184, 143, 143);
+	display: inline-block;
+	width: 140px;
+	height: 140px;
+	left: calc(50% - 70px);
+	top: 30px;
+	border-radius: 50%;
+}
+.nobe{
+	position: absolute;
+	left: calc(50% - 2px);
+	width: 4px;
+	height: 16px;
+	top: -1px;
+	background:rgb(110, 100, 100);
+}
+.nobei{
+	top: -16px;
+	background: #eaeaea;
+}
+.openi{
+	position: absolute;
+	left: -4px;
+	top: calc(50% - 5px);
+	width: 5px;
+	height: 10px;
+	background:#fff;
+}
+.openo{
+	position: absolute;
+	right: -4px;
+	top: calc(50% - 5px);
+	width: 5px;
+	height: 10px;
+	background:#fff;
+}
+
+.buttons{
+	position:absolute;
+	right:10px;
+	width:$width*2 + 90px;
+	height:$width*2 + 90px;
+	background-color:#fafafa;
+	border-radius:50%;
+	.btn{
+		position:absolute;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		border-radius:50%;
+		border:solid 1px #eaeaea;
+		cursor: pointer;
+		outline: none;
+		background-color: rgb(16, 108, 200);
+		color: #fff;
+		font-size: 18px;
+		font-family: roboto;
+	}
+	.clc{
+		position:absolute;
+		width: 80px;
+		height: 80px;
+		left: calc(50% - 40px);
+		top: calc(50% - 40px);
+		background-color:#FF6868;
+		@extend .btn;
+	}
+}
