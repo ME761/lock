@@ -70,6 +70,7 @@ $width:200px;
 	background-color:#fafafa;
 	border-radius:50%;
 	.btn{
+		$buttonColor:rgb(16, 108, 200);
 		position:absolute;
 		width: 50px;
 		height: 50px;
@@ -78,10 +79,14 @@ $width:200px;
 		border:solid 1px #eaeaea;
 		cursor: pointer;
 		outline: none;
-		background-color: rgb(16, 108, 200);
+		background-color: $buttonColor;
 		color: #fff;
 		font-size: 18px;
 		font-family: roboto;
+		transition: all ease 0.2s;
+		&.true{
+			background-color: darken($buttonColor,10%);
+		}
 	}
 	.clc{
 		position:absolute;

@@ -9,7 +9,7 @@
 <body>
 	<div style="text-align:center;margin-top:10px;">
 		<div>
-			o:{{icurrent}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;i:{{ocurrent}}&deg;
+			<!-- o:{{icurrent}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;i:{{ocurrent}}&deg; -->
 		</div>
 	</div>
 	<div class="main">
@@ -23,7 +23,7 @@
 		</div>
 		<div class="buttons">
 			<button class="clc" ng-click="DIR=-1*DIR">{{DIR==1?'CW':'CCW'}}</button>
-			<button ng-click="nnjoy(btn)" class="btn" ng-repeat="btn in buttons" style="top:{{215-200*Math.cos(torad(btn*30))}}px;left:{{215+200*Math.sin(torad(btn*30))}}px">{{btn}}</button>
+			<button ng-click="nnjoy(btn)" class="btn {{ocurrent%360 == (30*btn)%360}}" ng-repeat="btn in buttons" style="top:{{215-200*Math.cos(torad(btn*30))}}px;left:{{215+200*Math.sin(torad(btn*30))}}px">{{btn}}</button>
 		</div>
 	</div>
 </body>

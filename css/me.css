@@ -198,7 +198,10 @@ body {
   background-color: #106cc8;
   color: #fff;
   font-size: 18px;
-  font-family: roboto; }
+  font-family: roboto;
+  transition: all ease 0.2s; }
+.buttons .btn.true, .buttons .true.clc {
+  background-color: #0c5299; }
 .buttons .clc {
   position: absolute;
   width: 80px;
