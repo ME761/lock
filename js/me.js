@@ -28,9 +28,7 @@ app.controller('mainCtrl',function($scope,$timeout) {
 				}
 			}
 			$scope.icurrent+=xicurrent;
-			// icurrent=xicurrent;
 			$scope.ocurrent+=normalized;
-			// ocurrent=next;
 		}
 		if($scope.DIR==CCW){
 			if(next<ocurrent){
@@ -50,18 +48,8 @@ app.controller('mainCtrl',function($scope,$timeout) {
 				xicurrent=normalized - (-icurrent + ocurrent) +1;
 				xicurrent%=360;
 			}
-
-			// for(var i=ocurrent;i>=ocurrent - normalized;i--){
-			// 	console.log(i,ocurrent,icurrent)
-			// 	if(i%360 - icurrent ==1){
-			// 		xicurrent=normalized - (-icurrent + ocurrent) +1;
-			// 		// console.log('yomen',xicurrent,normalized,icurrent,ocurrent);
-			// 	}
-			// }
 			$scope.icurrent-=xicurrent;
-			// icurrent=xicurrent;
 			$scope.ocurrent-=normalized;
-			// ocurrent=next;
 		}
 	}
 });
