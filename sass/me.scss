@@ -35,6 +35,7 @@ $width:200px;
 	left: calc(50% - 70px);
 	top: 175px;
 	border-radius: 50%;
+	background-color:#eee;
 }
 .nobe{
 	position: absolute;
@@ -70,9 +71,9 @@ $width:200px;
 	left:calc(50% - 245px);
 	width:$width*2 + 90px;
 	height:$width*2 + 90px;
-	background-color:#fafafa;
+	background-color:#f7f7f7;
 	border-radius:50%;
-	
+	box-shadow:0 0 4px 2px rgba(0,0,0,0.23);
 }
 .btn{
 	$buttonColor:rgb(16, 108, 200);
@@ -92,6 +93,20 @@ $width:200px;
 	&.true{
 		background-color: darken($buttonColor,10%);
 	}
+}
+.reset{
+	@extend .btn;
+	position:relative;
+	left:auto;
+	border-radius:50%;
+	width:auto;
+	padding:0 10px;
+}
+.unlock{
+	@extend .reset;
+	@extend .btn;
+	height:50px;
+	display:inline-block;
 }
 .clc{
 	position:absolute;

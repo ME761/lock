@@ -152,7 +152,8 @@ body {
   height: 140px;
   left: calc(50% - 70px);
   top: 175px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  background-color: #eee; }
 
 .nobe {
   position: absolute;
@@ -187,10 +188,11 @@ body {
   left: calc(50% - 245px);
   width: 490px;
   height: 490px;
-  background-color: #fafafa;
-  border-radius: 50%; }
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.23); }
 
-.btn, .clc {
+.btn, .reset, .unlock, .clc {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -204,8 +206,19 @@ body {
   font-size: 18px;
   font-family: roboto;
   transition: all ease 0.2s; }
-  .btn.true, .true.clc {
+  .btn.true, .true.reset, .true.unlock, .true.clc {
     background-color: #0c5299; }
+
+.reset, .unlock {
+  position: relative;
+  left: auto;
+  border-radius: 50%;
+  width: auto;
+  padding: 0 10px; }
+
+.unlock {
+  height: 50px;
+  display: inline-block; }
 
 .clc {
   position: absolute;

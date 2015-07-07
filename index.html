@@ -9,8 +9,10 @@
 <body>
 	<div style="text-align:center;margin-top:10px;">
 		<div>
-			<!-- o:{{icurrent}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;i:{{ocurrent}}&deg; -->
+			o:{{icurrent%360}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;i:{{ocurrent%360}}&deg;
 		</div>
+		<a class="unlock">{{unlocked==true?'Unlocked':'Locked'}}</a>
+		<button ng-click="reset()" class="reset">Scramble</button>
 	</div>
 	<div class="main">
 
