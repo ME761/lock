@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div class="main">
-		
+
 		<div class="outer" style="transition:all ease 0.6s;transform: rotate({{ocurrent}}deg);">
 			<span class="nobe"></span>
 			<span class="openo"></span>
@@ -22,8 +22,8 @@
 			<span class="nobe nobei"></span>
 			<span class="openi"></span>
 		</div>
+		<button class="clc" ng-click="DIR=-1*DIR">{{DIR==1?'CW':'CCW'}}</button>
 		<div class="buttons">
-			<button class="clc" ng-click="DIR=-1*DIR">{{DIR==1?'CW':'CCW'}}</button>
 			<button ng-click="nnjoy(btn)" class="btn {{ocurrent%360 == (30*btn)%360}}" ng-repeat="btn in buttons" style="top:{{215-200*Math.cos(torad(btn*30))}}px;left:{{215+200*Math.sin(torad(btn*30))}}px">{{btn}}</button>
 		</div>
 	</div>

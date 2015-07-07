@@ -7,7 +7,7 @@ app.controller('mainCtrl',function($scope,$timeout) {
 	}
 
 	$scope.icurrent=360*360+25;
-	$scope.ocurrent=360*360+60;
+	$scope.ocurrent=360*360+30;
 	var ocurrent=$scope.ocurrent%360,icurrent=$scope.icurrent%360,next=0,CW=1,CCW=-1,xicurrent=0;
 	$scope.DIR=CW;
 	$scope.nnjoy=function(pos){

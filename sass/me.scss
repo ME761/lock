@@ -67,37 +67,40 @@ $width:200px;
 
 .buttons{
 	position:absolute;
-	right:10px;
+	left:calc(50% - 245px);
 	width:$width*2 + 90px;
 	height:$width*2 + 90px;
 	background-color:#fafafa;
 	border-radius:50%;
-	.btn{
-		$buttonColor:rgb(16, 108, 200);
-		position:absolute;
-		width: 50px;
-		height: 50px;
-		line-height: 50px;
-		border-radius:50%;
-		border:solid 1px #eaeaea;
-		cursor: pointer;
-		outline: none;
-		background-color: $buttonColor;
-		color: #fff;
-		font-size: 18px;
-		font-family: roboto;
-		transition: all ease 0.2s;
-		&.true{
-			background-color: darken($buttonColor,10%);
-		}
+	
+}
+.btn{
+	$buttonColor:rgb(16, 108, 200);
+	position:absolute;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border-radius:50%;
+	border:solid 1px #eaeaea;
+	cursor: pointer;
+	outline: none;
+	background-color: $buttonColor;
+	color: #fff;
+	font-size: 18px;
+	font-family: roboto;
+	transition: all ease 0.2s;
+	&.true{
+		background-color: darken($buttonColor,10%);
 	}
-	.clc{
-		position:absolute;
-		width: 80px;
-		height: 80px;
-		left: calc(50% - 40px);
-		top: calc(50% - 40px);
-		background-color:#FF6868;
-		@extend .btn;
-	}
+}
+.clc{
+	position:absolute;
+	width: 80px;
+	height: 80px;
+	left: calc(50% - 40px);
+	top: calc(50% - 40px);
+	top:205px;
+	z-index: 15;
+	background-color:#FF6868;
+	@extend .btn;
 }

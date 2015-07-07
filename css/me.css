@@ -184,12 +184,13 @@ body {
 
 .buttons {
   position: absolute;
-  right: 10px;
+  left: calc(50% - 245px);
   width: 490px;
   height: 490px;
   background-color: #fafafa;
   border-radius: 50%; }
-.buttons .btn, .buttons .clc {
+
+.btn, .clc {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -203,14 +204,17 @@ body {
   font-size: 18px;
   font-family: roboto;
   transition: all ease 0.2s; }
-.buttons .btn.true, .buttons .true.clc {
-  background-color: #0c5299; }
-.buttons .clc {
+  .btn.true, .true.clc {
+    background-color: #0c5299; }
+
+.clc {
   position: absolute;
   width: 80px;
   height: 80px;
   left: calc(50% - 40px);
   top: calc(50% - 40px);
+  top: 205px;
+  z-index: 15;
   background-color: #FF6868; }
 
 /*# sourceMappingURL=me.css.map */
