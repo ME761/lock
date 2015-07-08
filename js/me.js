@@ -105,6 +105,7 @@ app.controller('mainCtrl',function($scope,$timeout) {
 			$scope.iicurrent-=xicurrent;
 			// $scope.icurrent-=normalized;
 		}
+		isUnlocked();
 	}
 
 	function getRandomArbitrary(min, max) {
