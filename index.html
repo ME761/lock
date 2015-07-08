@@ -9,19 +9,23 @@
 <body>
 	<div style="text-align:center;margin-top:10px;">
 		<div>
-			o:{{icurrent%360}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;i:{{ocurrent%360}}&deg;
+			Outer Disk:{{ocurrent%360}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;Middle disk:{{icurrent%360}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;Inner Disk{{iicurrent%360}}&deg;
 		</div>
 		<a class="unlock">{{unlocked==true?'Unlocked':'Locked'}}</a>
 		<button ng-click="reset()" class="reset">Scramble</button>
 	</div>
 	<div class="main">
-
+		<div class="father" style="transition:all ease 0.6s;transform: rotate({{iicurrent}}deg);">
+			<span class="openo"></span>
+			<span class="nobe nobei"></span>
+		</div>
 		<div class="outer" style="transition:all ease 0.6s;transform: rotate({{ocurrent}}deg);">
 			<span class="nobe"></span>
 			<span class="openo"></span>
 		</div>
 		<div class="inner" style="transition:all ease 0.6s;transform: rotate({{icurrent}}deg);">
 			<span class="nobe nobei"></span>
+			<span class="nobe nobeii"></span>
 			<span class="openi"></span>
 		</div>
 		<button class="clc" ng-click="DIR=-1*DIR">{{DIR==1?'CW':'CCW'}}</button>

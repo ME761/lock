@@ -13,7 +13,8 @@ app.controller('mainCtrl',function($scope,$timeout) {
 	init();
 	function init(){
 		$scope.icurrent=360*360+getRandomArbitrary(150,350);
-		$scope.ocurrent=360*360+getRandomArbitrary(1,151);
+		$scope.ocurrent=360*360+getRandomArbitrary(51,151);
+		$scope.iicurrent=360*360+getRandomArbitrary(1,50);
 		$scope.unlocked=false;
 		$scope.DIR=CW;
 	}
@@ -22,6 +23,7 @@ app.controller('mainCtrl',function($scope,$timeout) {
 		var normalized;
 		ocurrent=$scope.ocurrent%360;
 		icurrent=$scope.icurrent%360;
+		var middleCurrent=icurrent;
 		xicurrent=0;
 		if($scope.DIR==CW) {
 			if(next<ocurrent){
@@ -59,7 +61,50 @@ app.controller('mainCtrl',function($scope,$timeout) {
 			$scope.icurrent-=xicurrent;
 			$scope.ocurrent-=normalized;
 		}
+		var middleNext=$scope.icurrent%360;
+		inner(middleCurrent,middleNext)
 		isUnlocked();
+	}
+
+	function inner(ocurrent,next){
+		var icurrent=$scope.iicurrent%360;
+		xicurrent=0;
+		if($scope.DIR==CW) {
+			if(next<ocurrent){
+				normalized=360 - ocurrent + next;
+			}else{
+				normalized=next - ocurrent;
+			}
+			for(var i=ocurrent;i<=ocurrent+normalized;i++){
+				if(icurrent - (i%360)==1){
+					xicurrent=normalized - icurrent + ocurrent+1;
+					xicurrent%=360;
+				}
+			}
+			$scope.iicurrent+=xicurrent;
+			// $scope.icurrent+=normalized;
+		}
+		if($scope.DIR==CCW){
+			if(next<ocurrent){
+				normalized=ocurrent - next;
+			}else{
+				normalized=(360 - next + ocurrent)%360;
+			}
+
+			var move=0;
+			if(icurrent<ocurrent){
+				move=ocurrent - icurrent;
+			}else{
+				move=(360 - icurrent + ocurrent)%360;
+			}
+			if(move<normalized){
+				xicurrent=normalized - (-icurrent + ocurrent) +1;
+				// xicurrent=normalized - move +1;
+				xicurrent%=360;
+			}
+			$scope.iicurrent-=xicurrent;
+			// $scope.icurrent-=normalized;
+		}
 	}
 
 	function getRandomArbitrary(min, max) {
@@ -67,7 +112,7 @@ app.controller('mainCtrl',function($scope,$timeout) {
 	}
 
 	function isUnlocked(){
-		if($scope.icurrent%360<182 && $scope.icurrent%360>178 && (180+$scope.ocurrent)%360<182 && (180+$scope.ocurrent)%360>178){
+		if($scope.icurrent%360<182 && $scope.icurrent%360>178 && (180+$scope.ocurrent)%360<182 && (180+$scope.ocurrent)%360>178 && $scope.iicurrent%360<182 && $scope.iicurrent>178){
 			$scope.unlocked=true;
 		}else{
 			$scope.unlocked=false;
