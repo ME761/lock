@@ -11,7 +11,6 @@
 		<div>
 			Outer Disk:{{ocurrent%360}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;Middle disk:{{icurrent%360}}&deg; &nbsp;&nbsp;&nbsp;&nbsp;Inner Disk{{iicurrent%360}}&deg;
 		</div>
-		<a class="unlock">{{unlocked==true?'Unlocked':'Locked'}}</a>
 		<button ng-click="reset()" class="reset">Scramble</button>
 	</div>
 	<div class="main">
@@ -28,8 +27,10 @@
 			<span class="nobe nobeii"></span>
 			<span class="openi"></span>
 		</div>
-		<button class="clc" ng-click="DIR=-1*DIR">{{DIR==1?'CW':'CCW'}}</button>
+		<button class="clc" ng-click="DIR=-1*DIR"><img ng-src="img/{{DIR==1?'rotate.png':'counter.svg'}}"></button>
 		<div class="buttons">
+			<img src="img/arrow.png" style="position: absolute;right: -189px;top: 142px;width: 200px;z-index: -1;">
+			<span style="position: absolute;right: -355px;top: 223px;width: 200px;z-index: -1;color:rgb(16, 108, 200);font-size:30px;">{{unlocked==true?'Unlocked':'Locked'}}</span>
 			<button ng-click="nnjoy(btn)" class="btn {{ocurrent%360 == (30*btn)%360}}" ng-repeat="btn in buttons" style="top:{{215-200*Math.cos(torad(btn*30))}}px;left:{{215+200*Math.sin(torad(btn*30))}}px">{{btn}}</button>
 		</div>
 	</div>
